@@ -1,0 +1,18 @@
+--- apertium-oc-es-1.0.5/apertium-oc-es.oc-es.t1x.orig	2010-12-31 15:15:07.958117745 +0100
++++ apertium-oc-es-1.0.5/apertium-oc-es.oc-es.t1x	2010-12-31 15:14:35.166117745 +0100
+@@ -1190,6 +1190,7 @@
+       <choose><!-- aquests no són ref-->
+ 	<when>
+ 	  <test>
++	   <and>
+ 	    <equal caseless="yes">
+ 	      <clip pos="2" side="sl" part="pers"/>
+ 	      <lit-tag v="p3"/>
+@@ -1198,6 +1199,7 @@
+ 	      <clip pos="2" side="sl" part="nbr"/>
+ 	      <lit-tag v="sg"/>
+ 	    </equal>
++	   </and>
+ 	  </test>
+ 	  <choose>
+ 	    <when>
