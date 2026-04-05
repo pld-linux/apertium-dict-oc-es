@@ -2,20 +2,18 @@ Summary:	Occitan-Spanish language pair for Apertium
 Summary(pl.UTF-8):	Para języków okcytański-hiszpański dla Apertium
 %define	lpair	oc-es
 Name:		apertium-dict-%{lpair}
-Version:	1.0.6
-Release:	2
+Version:	1.0.8
+Release:	1
 License:	GPL v2+
 Group:		Applications/Text
-Source0:	http://downloads.sourceforge.net/apertium/apertium-%{lpair}-%{version}.tar.gz
-# Source0-md5:	ac378a091f91489a03e27c382e4a14cb
-URL:		http://www.apertium.org/
-BuildRequires:	apertium-devel >= 3.2.0
+Source0:	https://github.com/apertium/apertium-%{lpair}/archive/v%{version}/apertium-%{lpair}-%{version}.tar.gz
+# Source0-md5:	f6a8070247a2ede9c0f20aa323f499bc
+URL:		https://www.apertium.org/
+BuildRequires:	apertium-devel >= 3.8.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	libxslt-progs
-BuildRequires:	lttoolbox >= 3.2.0
 BuildRequires:	pkgconfig
-Requires:	apertium >= 3.2.0
+Requires:	apertium >= 3.8.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,13 +40,8 @@ oznaczania części mowy w obu językach.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/apertium/modes
-
 %{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-# not needed here (see modes subdir) and contain wrong (builddir) paths
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/apertium/apertium-%{lpair}/*.mode
 
 %clean
 rm -rf $RPM_BUILD_ROOT
